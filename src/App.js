@@ -5,33 +5,33 @@ import ReactGA from 'react-ga';
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
-import 'react-select2-wrapper/css/select2.css';
 import './css/App.css';
+import './css/MenuzzGlobal.css';
 
 // screens import
+import NotFoundScreen from './screens/NotFoundScreen';
+import HomeScreen from './screens/HomeScreen';
 
 // components
-import Navbar from './components/Layout/Navbar/Navbar'
+import Layout from './components/Layout/Layout';
 
 const App = () => {
   ReactGA.initialize('UA-178471960-1');
   ReactGA.pageview(window.location.pathname + window.location.search);
   return (
-    <div className="App">
-      <Navbar />
+    <Layout>
       <Switch>
-      {/* https://blog.logrocket.com/search-optimized-spas-react-helmet/ */}
-          {/* <Route path="/" exact component={Index} />
-          <Route path="/listing/:city" exact component={Listing} />
+          <Route path="/" exact><HomeScreen /></Route>
+          {/*<Route path="/city/:city" exact component={Listing} />
           <Route path="/restaurant/:slug" exact component={RestaurantPage} />
 
           <Route path="/miez" exact component={MiezPage} />
-          <Route path="/kapcsolat" exact component={ContactPage} />
+          <Route path="/kapcsolat" exact component={ContactPage} /> */}
 
-          <Route component={NotFound} />
- */}
+          <Route><NotFoundScreen /></Route>
+
       </Switch>
-    </div>
+    </Layout>
   );
 }
 
