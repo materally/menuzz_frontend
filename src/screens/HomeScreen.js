@@ -2,7 +2,8 @@ import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 
 // Components
-import Hero from '../components/Layout/Home/Hero';
+import Hero from '../components/Home/Hero';
+import PopularCities from '../components/Home/PopularCities';
 
 const HomeScreen = () => {
   return (
@@ -12,6 +13,7 @@ const HomeScreen = () => {
             <meta name="description" content="Keress ebédet a közeledben! Heti menü, napi menü" />
         </Helmet>
         <Hero />
+        <PopularCities />
     </Fragment>
   );
 };

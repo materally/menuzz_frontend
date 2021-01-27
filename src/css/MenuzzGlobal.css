@@ -2,3 +2,38 @@
     background-color: #f0a500!important;
     border-color: #f0a500!important;
 }
+
+.IndexCity {
+    position: relative;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -ms-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    transition: 0.3s all;
+    border-radius:6px;
+    height:180px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.IndexCity:hover {
+    transform: scale(1.1);
+}
+
+.IndexCity__City {
+    position: absolute;
+    bottom:0;
+    width:100%;
+    text-align:left;
+    border-radius:10px;
+}
+
+.IndexCity__H6 {
+    margin:0!important;
+    color:#fff;
+    font-weight: bold;
+    padding-left:5px;
+    padding-bottom:5px;
+    padding-top:15px;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
+    border-radius:10px;
+}

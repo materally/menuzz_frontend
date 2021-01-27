@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select'
 
 // utils
-import API, { API_SECRET } from '../../../services/api.service';
+import API, { API_SECRET } from '../../services/api.service';
 
 const SearchForm = () => {
     const [cities, setCities] = useState([]);
@@ -56,7 +56,7 @@ const SearchForm = () => {
                     </div> {/* location-dropdown */}
                 </div> {/* form-group */}
                 <div className="col-lg-2 col-md-2 col-sm-12 form-group">
-                    <button type="button" className="btn btn-primary btn-block btn-lg btn-gradient menuzzBtn" onClick={ () => searchBtn() }>Keresés</button>
+                    <button type="button" className="btn btn-primary btn-block btn-lg btn-gradient menuzzBtn" style={{ height: 38, padding: '4px 5px' }} onClick={ () => searchBtn() }>Keresés</button>
                 </div> {/* form-group */}
             </div> {/* form-row */}
         </form>
