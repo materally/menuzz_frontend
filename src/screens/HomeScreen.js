@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 
 // Components
 import Hero from '../components/Home/Hero';
+import LatestRestaurants from "../components/Home/LatestRestaurants";
 import PopularCities from '../components/Home/PopularCities';
 
 const HomeScreen = () => {
@@ -14,6 +15,7 @@ const HomeScreen = () => {
         </Helmet>
         <Hero />
         <PopularCities />
+        <LatestRestaurants />
     </Fragment>
   );
 };

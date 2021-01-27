@@ -12,7 +12,7 @@ const Hero = () => {
                     <div className="col-md-8 mx-auto">
 	                    <div className="homepage-search-title text-center">
                             <h1 className="mb-2 font-weight-normal" style={{ color: 'white' }}><span className="font-weight-bold">Ebédelnél valami finomat?</span></h1>
-                            <h5 className="mb-5 text-warning font-weight-normal">Keress a városodban menüs éttermet!</h5>
+                            <h5 className="mb-5 text-warning font-weight-normal">Keress a városodban menüzős éttermet!</h5>
                         </div> {/* homepage-search-title */}
 	                    <div className="homepage-search-form">
                             <SearchForm />
