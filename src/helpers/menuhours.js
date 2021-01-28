@@ -19,10 +19,10 @@ function todayMenuHours(menu_hours) {
   if(todayIsAvailable === "1"){
     if (now.isBetween(start_at, stop_at)) {
       classname = 'bg-success text-white';
-      time = <><i className="fa fa-clock-o"></i> {menu_hours[day_start].substring(0,5) + " - " + menu_hours[day_stop].substring(0,5)} </>
+      time = <><i className="fas fa-clock-o"></i> {menu_hours[day_start].substring(0,5) + " - " + menu_hours[day_stop].substring(0,5)} </>
     } else {
       classname = 'bg-danger text-white';
-      time = <><i className="fa fa-clock-o"></i> {menu_hours[day_start].substring(0,5) + " - " + menu_hours[day_stop].substring(0,5)} </>
+      time = <><i className="fas fa-clock"></i> {menu_hours[day_start].substring(0,5) + " - " + menu_hours[day_stop].substring(0,5)} </>
     }
   }else{
     classname = 'bg-light text-dark';
