@@ -46,7 +46,7 @@ const Footer = () => {
                     <div className="col-xl-12">
                         <p className="text-black">VÁROSOK</p>
                         <div className="search-links">
-                            <Link to="#">Debrecen</Link> |  <Link to="#">Biharkeresztes</Link> | <Link to="#">Kokad</Link>
+                            <Link to="/city/Debrecen">Debrecen</Link> |  <Link to="/city/Biharkeresztes">Biharkeresztes</Link> | <Link to="/city/Kokad">Kokad</Link>
                         </div>
                     </div>
                 </div>

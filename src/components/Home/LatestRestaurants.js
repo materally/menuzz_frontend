@@ -20,7 +20,6 @@ const LatestRestaurants = () => {
         API.get(`restaurant/getForCarousel`, {params: {'API_SECRET': API_SECRET} })
         .then(res => {
             if(res.status === 200){
-                console.log(res.data)
                 setRestaurants(res.data);
                 setLoading(false);
             }

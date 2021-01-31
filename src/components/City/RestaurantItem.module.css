@@ -1,0 +1,7 @@
+.RestaurantItem {
+    transition: transform 0.2s;
+}
+
+.RestaurantItem:hover {
+    transform: scale(1.05);
+}

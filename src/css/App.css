@@ -593,6 +593,9 @@ img{
     right: 8px;
     top: 8px;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)!important;
+    background-color: #FFF;
+    font-weight: bold;
+    padding-right: 4px;
 }
 .list-card .favourite-heart i {
     background: #fff;
