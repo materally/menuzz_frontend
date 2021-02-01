@@ -5,13 +5,16 @@ import { Helmet } from "react-helmet";
 // Components
 import API, { API_SECRET } from '../services/api.service';
 import Restaurants from '../components/City/Restaurants';
+import Filter from '../components/City/Filter';
 
 const CityScreen = () => {
   const { city } = useParams();
   let history = useHistory();
   const [exists, setExists] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
 		API.get(`restaurant/checkCityExists/${city}`, {params: {'API_SECRET': API_SECRET} })
@@ -36,12 +39,21 @@ const CityScreen = () => {
                   return (restaurant.address.city === city);
               });
               setRestaurants(filteredData);
+              setFilteredRestaurants(filteredData);
               setLoading(false)
           }
       })
       .catch(error => console.log("Error: "+error));
     }
   }, [exists, city])
+
+  const handleSearchInput = val => {
+    setSearch(val);
+    const fData = restaurants.filter(element => {
+      return element.name.toLowerCase().includes(val.toLowerCase());
+    });
+    return setFilteredRestaurants(fData);
+  }
 
   return (
     <Fragment>
@@ -52,7 +64,7 @@ const CityScreen = () => {
         </Helmet>
         <section className="section pt-5 pb-5 products-listing">
           <div className="container">
-            <div className="row d-none-m">
+            <div className="row">
               <div className="col-md-12">
                 <h4 className="font-weight-bold mt-0 mb-3">
                 <Link to="#" onClick={() => history.goBack()}><i className="fas fa-arrow-left" style={{ marginRight: 10 }}></i></Link> 
@@ -60,9 +72,13 @@ const CityScreen = () => {
               </div> {/* col-md-12 */}
             </div> {/* row d-none-m */}
             <div className="row">
+              <Filter 
+                search={search}
+                handleSearchInput={handleSearchInput}
+              />
               <Restaurants 
                 loading={loading}
-                restaurants={restaurants}
+                restaurants={filteredRestaurants}
               />
             </div> {/* row */}
           </div> {/* container */}    

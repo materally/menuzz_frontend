@@ -1,38 +1,42 @@
 import React from "react";
+import styled from "styled-components";
 
 // Components
 
 const Filter = (props) => {
     return (
-    <div className="col-md-3">
-        <div className="filters shadow-sm rounded bg-white mb-4">
+    <div className="col-md-12">
+        <FilterDiv className="filters shadow-sm rounded bg-white mb-4 p-4">
 
-            <div className="filters-header border-bottom pl-4 pr-4 pt-3 pb-3">
-                <h5 className="m-0">Szűrés {props.city}</h5>
+            <h6 className="m-0 mr-5">Szűrés {props.city}</h6>
+            
+            <div className="custom-control mr-4">
+                <input type="text" className="form-control" placeholder="Keress rá egy étteremre" id="search" style={{ minWidth: 210 }} value={props.search} onChange={ (e) => props.handleSearchInput(e.target.value) } />
             </div>
 
-            <div className="filters-body">
-                <div id="accordion">
-                    <div className="filters-card border-bottom p-4">
-                        <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div className="filters-card-body card-shop-filters">
-                                <div className="custom-control custom-checkbox">
-                                    <input type="checkbox" className="custom-control-input" id="cb1"/>
-                                    <label className="custom-control-label" htmlFor="cb1">Most nyitva</label>
-                                </div>
-                                <div className="custom-control custom-checkbox">
-                                    <input type="checkbox" className="custom-control-input" id="cb2"/>
-                                    <label className="custom-control-label" htmlFor="cb2">Házhozszállítás</label>
-                                </div>
-                                
-                            </div> {/* filters-card-body card-shop-filters */}
-                        </div> {/* collapse show */}
-                    </div> {/* filters-card border-bottom p-4 */}
-                </div> {/* accordion */}
-            </div> {/* filters-bofy */}
-        </div> {/* filters shadow-sm rounded bg-white mb-4 */}    
+            <div className="custom-control custom-checkbox mr-3">
+                <input type="checkbox" className="custom-control-input" id="cb1"/>
+                <label className="custom-control-label" htmlFor="cb1">Most nyitva</label>
+            </div>
+
+            <div className="custom-control custom-checkbox mr-1">
+                <input type="checkbox" className="custom-control-input" id="cb2"/>
+                <label className="custom-control-label" htmlFor="cb2">Házhozszállítás</label>
+            </div>
+                        
+            
+                
+                
+        </FilterDiv> {/* filters shadow-sm rounded bg-white mb-4 */}    
     </div> /* col-md-3 */
   );
 };
+
+const FilterDiv = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+`;
 
 export default Filter;
