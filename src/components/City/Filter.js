@@ -15,13 +15,18 @@ const Filter = (props) => {
             </div>
 
             <div className="custom-control custom-checkbox mr-3">
-                <input type="checkbox" className="custom-control-input" id="cb1"/>
-                <label className="custom-control-label" htmlFor="cb1">Most nyitva</label>
+                <input type="checkbox" className="custom-control-input" id="menuFilter" checked={props.menuFilter} onChange={ () => props.setMenuFilter(!props.menuFilter) }/>
+                <label className="custom-control-label" htmlFor="menuFilter">Most menü elérhető</label>
+            </div>
+
+            <div className="custom-control custom-checkbox mr-3">
+                <input type="checkbox" className="custom-control-input" id="openFilter" checked={props.openFilter} onChange={ () => props.setOpenFilter(!props.openFilter) }/>
+                <label className="custom-control-label" htmlFor="openFilter">Most nyitva</label>
             </div>
 
             <div className="custom-control custom-checkbox mr-1">
-                <input type="checkbox" className="custom-control-input" id="cb2"/>
-                <label className="custom-control-label" htmlFor="cb2">Házhozszállítás</label>
+                <input type="checkbox" className="custom-control-input" id="can_delivery" checked={props.deliveryFilter} onChange={ () => props.setDeliveryFilter(!props.deliveryFilter) } />
+                <label className="custom-control-label" htmlFor="can_delivery">Házhozszállítás</label>
             </div>
                         
             

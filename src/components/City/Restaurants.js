@@ -31,6 +31,7 @@ const Restaurants = (props) => {
     <div className="col-md-12">
         { props.loading && <PageLoading /> }
         <div className="row">
+            { props.restaurants.length === 0 && <div className="alert alert-danger" role="alert" style={{ width: '100%' }}>A szűrés nem hozott eredményt!</div> }
             { renderRestaurants() }
         </div> {/* row */}
     </div> /* col-md-8 */
