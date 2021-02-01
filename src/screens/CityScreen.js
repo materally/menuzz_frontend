@@ -25,6 +25,7 @@ const CityScreen = () => {
   const [deliveryFilter, setDeliveryFilter] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
   const [menuFilter, setMenuFilter] = useState(false);
+  const [init, setInit] = useState(true);
 
   useEffect(() => {
 		API.get(`restaurant/checkCityExists/${city}`, {params: {'API_SECRET': API_SECRET} })
@@ -50,7 +51,8 @@ const CityScreen = () => {
               });
               setRestaurants(filteredData);
               setFilteredRestaurants(filteredData);
-              setLoading(false)
+              setLoading(false);
+              setInit(false);
           }
       })
       .catch(error => console.log("Error: "+error));
@@ -93,7 +95,7 @@ const CityScreen = () => {
           <meta name="description" content={'Keress ebédet ' + city + ' területén! Heti menü, napi menü ' + city + 'területén'} />
           <link rel="canonical" href={process.env.REACT_APP_FRONTEND_URL} />
         </Helmet>
-        <section className="section pt-5 pb-5 products-listing">
+        <section className="section pb-5 products-listing" style={{ paddingTop: 20 }}>
           <div className="container">
             <div className="row">
               <div className="col-md-12">
@@ -116,6 +118,7 @@ const CityScreen = () => {
               <Restaurants 
                 loading={loading}
                 restaurants={filteredRestaurants}
+                init={init}
               />
             </div> {/* row */}
           </div> {/* container */}    
