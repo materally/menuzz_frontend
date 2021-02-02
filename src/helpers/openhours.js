@@ -6,7 +6,7 @@ export const openHours = {
 
 let nowDay = moment().format("dddd").toLowerCase();
 
-function todayOpenHours(opening_hours) {
+function todayOpenHours(opening_hours, type = 'listing') {
   let day_start = nowDay + '_open_at';
   let day_stop = nowDay + '_close_at';
   let open_at = moment(opening_hours[day_start], "hh:mm:ss");
@@ -18,14 +18,14 @@ function todayOpenHours(opening_hours) {
 
   if(todayIsOpen === "1"){
     if (now.isBetween(open_at, close_at)) {
-      classname = 'badge badge-success';
-      time = <>NYITVA&nbsp;<i className="fas fa-clock-o"></i> {opening_hours[day_start].substring(0,5) + " - " + opening_hours[day_stop].substring(0,5)} </>
+      classname = (type === 'listing') ? 'badge badge-success' : 'btn btn-success';
+      time = <>NYITVA&nbsp;<i className="fas fa-clock"></i> {opening_hours[day_start].substring(0,5) + " - " + opening_hours[day_stop].substring(0,5)} </>
     } else {
-      classname = 'badge badge-danger';
+      classname = (type === 'listing') ? 'badge badge-danger' : 'btn btn-danger';
       time = <>ZÁRVA&nbsp;<i className="fas fa-clock"></i> {opening_hours[day_start].substring(0,5) + " - " + opening_hours[day_stop].substring(0,5)} </>
     }
   }else{
-    classname = 'badge badge-default';
+    classname = (type === 'listing') ? 'badge badge-default' : 'btn btn-default';
     time = 'MA ZÁRVA';
   }
 

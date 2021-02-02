@@ -33,13 +33,13 @@ const LatestRestaurants = () => {
             return <div className="item" key={index}>
                 <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                     <div className="list-card-image">
-                        <Link to={`restaurants/${r.slug}`}>
+                        <Link to={`/restaurant/${r.slug}`}>
                             <img src={`${r.logo}`} className="img-fluid item-img" alt={`${r.name}`}/>
                         </Link>
                     </div>
                     <div className="p-3 position-relative">
                         <div className="list-card-body">
-                            <h6 className="mb-1"><Link to={`restaurants/${r.slug}`} className="text-black">{r.name}</Link></h6>
+                            <h6 className="mb-1"><Link to={`/restaurant/${r.slug}`} className="text-black">{r.name}</Link></h6>
                             <p className="text-gray mb-3">{r.address.city} {r.address.street} {r.address.address}</p>
                             <p className="text-gray mb-3 time"><span className={` ${menuHour.classname} rounded-sm pl-2 pb-1 pt-1 pr-2`}><b>MENÜ</b> {menuHour.time}</span></p>
                         </div>
