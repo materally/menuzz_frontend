@@ -1,8 +1,26 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { FacebookProvider, Page } from 'react-facebook';
 
+import API, { API_SECRET, API_URL } from '../../../services/api.service';
+
 const Footer = () => {
+    const [cities, setCities] = useState([]);
+
+    useEffect(() => {
+        API.get(`home/home_cities`, {params: {'API_SECRET': API_SECRET} })
+        .then(res => {
+                setCities(res.data);
+        })
+        .catch(error => console.log("Error: "+error));
+    }, [])
+
+    const renderCities = () => {
+        return cities.length > 0 && cities.map((c, index) => (
+            <><Link to={`/city/${c.url}`}>{c.city_name}</Link> | </>
+        ))
+    }
+
     return (
     <Fragment>
         <section className="footer pt-5 pb-5">
@@ -46,7 +64,7 @@ const Footer = () => {
                     <div className="col-xl-12">
                         <p className="text-black">VÁROSOK</p>
                         <div className="search-links">
-                            <Link to="/city/Debrecen">Debrecen</Link> |  <Link to="/city/Biharkeresztes">Biharkeresztes</Link> | <Link to="/city/Kokad">Kokad</Link>
+                            { renderCities() }
                         </div>
                     </div>
                 </div>

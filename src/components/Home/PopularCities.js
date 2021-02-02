@@ -21,18 +21,22 @@ const PopularCities = () => {
    }, [])
 
    const renderCities = () => {
-      return cities.length > 0 && cities.map((c, index) => (
-         <div className="col-md-3 col-xs-6" key={c.id}>
-            <div className="IndexCity products-box">
-               <Link to={`city/${c.url}`}>
-                     <img src={`${API_URL}city/${c.image_url}`} className="img-fluid" alt="alt" style={{ borderRadius: 6, height: 180 }} />
-                     <div className="IndexCity__City">
-                        <h6 className="IndexCity__H6">{c.city_name}</h6>
-                     </div>
-               </Link>
-            </div>
-         </div>
-      ))
+      return cities.length > 0 && cities.map((c, index) => {
+         if(c.image_url){
+            return (
+               <div className="col-md-3 col-xs-6" key={c.id}>
+                  <div className="IndexCity products-box">
+                     <Link to={`/city/${c.url}`}>
+                           <img src={`${API_URL}city/${c.image_url}`} className="img-fluid" alt={`${c.city_name} napi menü, heti menü`} style={{ borderRadius: 6, height: 180 }} />
+                           <div className="IndexCity__City">
+                              <h6 className="IndexCity__H6">{c.city_name}</h6>
+                           </div>
+                     </Link>
+                  </div>
+               </div>
+            )
+         }
+      })
    }
 
     return (
