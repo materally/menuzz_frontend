@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useParams, useHistory, Link } from "react-router-dom";
+import { FacebookProvider, Page } from 'react-facebook';
 
 // utils
 import { menuHours, openHours } from '../helpers';
@@ -80,14 +81,23 @@ const RestaurantScreen = () => {
                                     <p style={{ textAlign: 'center' }}>
                                         <Link to={"/city/"+city}>további éttermek <b>{city}</b> területén</Link>
                                     </p>
+                                    {
+                                        data.contact.facebook && (
+                                            <div style={{ textAlign: 'center', paddingBottom: 20 }}>
+                                                <FacebookProvider appId="1613042828876052">
+                                                    <Page href={data.contact.facebook} tabs="timeline" />
+                                                </FacebookProvider>
+                                            </div>
+                                        )
+                                    }
                                     <MenuHours 
                                         menu_hours={data.menu_hours}
                                     />
                                     <OpenHours 
                                         open_hours={data.opening_hours}
                                     />
-                                    <GoogleAds />
-                                    <LocalAds />
+                                    {/* <GoogleAds />
+                                    <LocalAds /> */}
                                 </div> {/* col-md-4 */}
                             </div>
                         </div>

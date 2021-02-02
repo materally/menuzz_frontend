@@ -13,7 +13,7 @@ const Navbar = () => {
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                <ul className="navbar-nav ml-auto">
                   <li className="nav-item active">
-                     <Link to="/about" className="nav-link"><i className="fas fa-home"></i> Kezdőlap</Link>
+                     <Link to="/" className="nav-link"><i className="fas fa-home"></i> Kezdőlap</Link>
                   </li>
                </ul>
             </div>
