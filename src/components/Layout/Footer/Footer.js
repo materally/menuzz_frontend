@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { FacebookProvider, Page } from 'react-facebook';
 
-import API, { API_SECRET, API_URL } from '../../../services/api.service';
+import API, { API_SECRET } from '../../../services/api.service';
 
 const Footer = () => {
     const [cities, setCities] = useState([]);
@@ -17,7 +17,7 @@ const Footer = () => {
 
     const renderCities = () => {
         return cities.length > 0 && cities.map((c, index) => (
-            <><Link to={`/city/${c.url}`}>{c.city_name}</Link> | </>
+            <Fragment key={index}><Link to={`/city/${c.url}`}>{c.city_name}</Link> | </Fragment>
         ))
     }
 
@@ -28,26 +28,13 @@ const Footer = () => {
                 <div className="row">
                     <div className="col-md-4 col-12 col-sm-12">
                         <h6 className="mb-3">Éttermed van?</h6>
-                        <form className="newsletter-form mb-1">
-                            <div className="input-group">
-                                <input type="text" placeholder="Írd be az e-mail címed" className="form-control" />
-                                <div className="input-group-append">
-                                    <button type="button" className="btn btn-primary">
-                                        Küldés
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                        <p>Add meg az e-mail címedet és felvesszük veled a kapcsolatot!</p>
+                        <p>Írj nekünk a <Link to="/contact">Kapcsolatfelvétel</Link> menüpont alatt bármilyen kérdés, kérés esetén és felvesszük Veled a kapcsolatot!</p>
                     </div>
                     <div className="col-md-4 col-sm-6">
                         <h6 className="mb-3" style={{ textAlign: 'center' }}>Rólunk</h6>
                         <ul style={{ textAlign: 'center' }}>
-                            <li><Link to="/">Mi ez?</Link></li>
-                            <li><Link to="/">Kapcsolatfelvétel</Link></li>
-                            <li><Link to="/">Blog</Link></li>
-                            <li><Link to="/">Careers</Link></li>
-                            <li><Link to="/">Contact</Link></li>
+                            <li><Link to="/contact">Kapcsolatfelvétel</Link></li>
+                            {/* <li><Link to="/">Contact</Link></li> */}
                         </ul>
                     </div>
                     <div className="col-md-4 col-sm-12 col-xs-12" style={{ textAlign: 'center' }}>

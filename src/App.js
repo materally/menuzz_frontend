@@ -12,6 +12,7 @@ import NotFoundScreen from './screens/NotFoundScreen';
 import HomeScreen from './screens/HomeScreen';
 import CityScreen from './screens/CityScreen';
 import RestaurantScreen from './screens/RestaurantScreen';
+import ContactScreen from './screens/ContactScreen';
 
 // components
 import Layout from './components/Layout/Layout';
@@ -25,12 +26,8 @@ const App = () => {
           <Route path="/" exact><HomeScreen /></Route>
           <Route path="/city/:city" exact component={CityScreen} />
           <Route path="/restaurant/:slug" exact component={RestaurantScreen} />
-
-          {/*<Route path="/miez" exact component={MiezPage} />
-          <Route path="/kapcsolat" exact component={ContactPage} /> */}
-
+          <Route path="/contact" exact component={ContactScreen} /> 
           <Route><NotFoundScreen /></Route>
-
       </Switch>
     </Layout>
   );

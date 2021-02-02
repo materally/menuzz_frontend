@@ -60,9 +60,9 @@ const RestaurantScreen = () => {
                     <section className="offer-dedicated-body pt-2 pb-2 mt-4 mb-4">
                         <div className="container">
                             <div className="row">
-                                <div class="col-md-8">
-                                    <div class="offer-dedicated-body-left">
-                                        <div class="tab-content" id="pills-tabContent">
+                                <div className="col-md-8">
+                                    <div className="offer-dedicated-body-left">
+                                        <div className="tab-content" id="pills-tabContent">
                                             <Info 
                                                 data={data}
                                             />
@@ -76,7 +76,7 @@ const RestaurantScreen = () => {
                                         </div> {/* tab-content */}
                                     </div> {/* offer-dedicated-body-left */}
                                 </div> {/* col-md-8 */}
-                                <div class="col-md-4">
+                                <div className="col-md-4">
                                     <p style={{ textAlign: 'center' }}>
                                         <Link to={"/city/"+city}>további éttermek <b>{city}</b> területén</Link>
                                     </p>
@@ -102,7 +102,8 @@ const RestaurantScreen = () => {
     <Fragment>
         <Helmet>
             <title>{name} {city} - Heti menü, napi menü!</title>
-            <meta name="description" content="Keress ebédet a közeledben! Heti menü, napi menü" />
+            <meta name="description" content={"Keress ebédet a " + city + " területén. " + city + " heti menü, napi menü"} />
+            <link rel="canonical" href={process.env.REACT_APP_FRONTEND_URL + "/" + city} />
         </Helmet>
         { renderPage() }
     </Fragment>
