@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 
 // utils
 import { menuHours, openHours } from '../helpers';
@@ -9,6 +9,14 @@ import { menuHours, openHours } from '../helpers';
 import API, { API_SECRET } from '../services/api.service';
 import PageLoading from '../components/UI/PageLoading';
 import Header from '../components/Restaurant/Header';
+import Menu from '../components/Restaurant/Menu';
+import Info from '../components/Restaurant/Info';
+import Gallery from '../components/Restaurant/Gallery';
+import Ratings from '../components/Restaurant/Ratings';
+import GoogleAds from '../components/Restaurant/GoogleAds';
+import LocalAds from '../components/Restaurant/LocalAds';
+import MenuHours from '../components/Restaurant/MenuHours';
+import OpenHours from '../components/Restaurant/OpenHours';
 
 const RestaurantScreen = () => {
     const { slug } = useParams();
@@ -21,10 +29,8 @@ const RestaurantScreen = () => {
     useEffect(() => {
 		API.get(`restaurant/${slug}`, {params: {'API_SECRET': API_SECRET} })
         .then(res => {
-            console.log(res.data.data)
             if(res.status === 200){
                 const d = res.data.data;
-                console.log(d)
                 setData(d)
                 setName(d.name)
                 setCity(d.address.city)
@@ -50,6 +56,42 @@ const RestaurantScreen = () => {
                         menuHour={menuHour}
                         openHour={openHour}
                     />
+                    <Menu />
+                    <section className="offer-dedicated-body pt-2 pb-2 mt-4 mb-4">
+                        <div className="container">
+                            <div className="row">
+                                <div class="col-md-8">
+                                    <div class="offer-dedicated-body-left">
+                                        <div class="tab-content" id="pills-tabContent">
+                                            <Info 
+                                                data={data}
+                                            />
+                                            <Gallery 
+                                                images={data.images}
+                                                name={data.name}
+                                            />
+                                            <Ratings 
+                                                slug={data.slug}
+                                            />
+                                        </div> {/* tab-content */}
+                                    </div> {/* offer-dedicated-body-left */}
+                                </div> {/* col-md-8 */}
+                                <div class="col-md-4">
+                                    <p style={{ textAlign: 'center' }}>
+                                        <Link to={"/city/"+city}>további éttermek <b>{city}</b> területén</Link>
+                                    </p>
+                                    <MenuHours 
+                                        menu_hours={data.menu_hours}
+                                    />
+                                    <OpenHours 
+                                        open_hours={data.opening_hours}
+                                    />
+                                    <GoogleAds />
+                                    <LocalAds />
+                                </div> {/* col-md-4 */}
+                            </div>
+                        </div>
+                    </section>
                 </Fragment>
                 )
             }

@@ -37,3 +37,17 @@
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
     border-radius:10px;
 }
+
+.openCloseTable {
+    font-weight: bold;
+    background-color: cornsilk;
+}
+
+.closedInTimeTable {
+    color: #ff3008;
+    font-weight: bold;
+}
+
+.text-menuzz {
+    color: #f0a500!important;
+}
