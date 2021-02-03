@@ -44,6 +44,10 @@ const CityScreen = () => {
 
   useEffect(() => {
     if(exists && city){
+      setLoading(true);
+      setRestaurants([]);
+      setFilteredRestaurants([]);
+      setInit(true);
       API.get(`restaurant/listing`, {params: {'API_SECRET': API_SECRET} })
       .then(res => {
           if(res.status === 200){
