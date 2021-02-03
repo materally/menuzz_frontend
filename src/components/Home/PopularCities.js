@@ -27,7 +27,7 @@ const PopularCities = () => {
                <div className="col-md-3 col-6" key={c.id}>
                   <div className="IndexCity products-box">
                      <Link to={`/city/${c.url}`}>
-                           <img src={`${API_URL}city/${c.image_url}`} className="img-fluid" alt={`${c.city_name} napi menü, heti menü`} style={{ borderRadius: 6, height: 180 }} />
+                           <img src={`${API_URL}city/${c.image_url}`} className="img-fluid" alt={`${c.city_name} napi menü, heti menü`} style={{ borderRadius: 6 }} />
                            <div className="IndexCity__City">
                               <h6 className="IndexCity__H6">{c.city_name}</h6>
                            </div>

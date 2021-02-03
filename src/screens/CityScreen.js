@@ -28,7 +28,8 @@ const CityScreen = () => {
   const [init, setInit] = useState(true);
 
   useEffect(() => {
-		API.get(`restaurant/checkCityExists/${city}`, {params: {'API_SECRET': API_SECRET} })
+    const bCity = encodeURIComponent(city);
+		API.get(`restaurant/checkCityExists`, {params: {'API_SECRET': API_SECRET, 'city': bCity} })
         .then(res => {
             if(res.status === 200){
                 if(res.data === 0) {

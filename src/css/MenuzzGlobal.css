@@ -13,10 +13,20 @@
     border-radius:6px;
     height:180px;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .IndexCity:hover {
     transform: scale(1.1);
+}
+
+.IndexCity img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .IndexCity__City {
