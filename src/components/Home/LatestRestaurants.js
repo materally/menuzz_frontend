@@ -30,7 +30,7 @@ const LatestRestaurants = () => {
     const renderLatestRestaurants = () => {
         return restaurants.length > 0 && restaurants.map((r, index) => {
             const menuHour = menuHours.todayMenuHours(r.menu_hours);
-            return <div className="item" key={index}>
+            return <div className="item" key={index} style={{ padding: 10 }}>
                 <div className="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                     <div className="list-card-image">
                         <Link to={`/restaurant/${r.slug}`}>
@@ -61,9 +61,10 @@ const LatestRestaurants = () => {
             <div className="col-md-12">
                { loading && <PageLoading /> }
                 <OwlCarousel 
-                    className='owl-carousel-four owl-theme'  
+                    className='owl-carousel-category owl-theme'  
                     margin={10} 
                     items={4}
+                    {...options}
                 >
                     { renderLatestRestaurants() }    
                 </OwlCarousel>
@@ -72,6 +73,23 @@ const LatestRestaurants = () => {
         </div> {/* container */}
     </section>
     )
+}
+
+const options = {
+	responsive: {
+        0:{
+            items:1,
+        },
+        600:{
+            items:2,
+        },
+        1000: {
+          items: 4,
+        },
+        1200: {
+          items: 4,
+        },
+      } 
 }
 
 export default LatestRestaurants;
