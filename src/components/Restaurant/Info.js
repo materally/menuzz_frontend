@@ -5,7 +5,7 @@ import nl2br from 'react-nl2br';
 import { niceDeliveryInfo } from '../../helpers';
 
 const Info = (props) => {
-    const { data } = props;
+    const { data, externalMenu } = props;
 
     const price = () => {
         const { price } = props.data;
@@ -99,25 +99,28 @@ const Info = (props) => {
                     <img className="mr-3 img-fluid" alt={data.name} src={data.logo} style={{ width:'130px' }}/>
                 </div>
 
-                <h5 className="mb-4">{data.name}</h5>
+                <h5 className="mb-2">{data.name}</h5>
 
-                <p className="mb-2 text-black" style={{ fontSize: 16 }}><i className="fas fa-phone text-primary mr-2" />
+
+                { data.menu_url && <p className="mb-3"><a href={`${data.menu_url}`} target="_blank"><span className="badge badge-primary" style={{ fontSize: 16 }}><i className="fas fa-utensils"></i> MENÜ MEGTEKINTÉSE</span></a></p> }
+
+                <p className="mb-2" style={{ fontSize: 16 }}><i className="fas fa-phone text-primary mr-2" />
                     { data.contact.phone_1 && <a href={`tel:${data.contact.phone_1}`}>{data.contact.phone_1}</a> }
                     { data.contact.phone_2 && <>, <a href={`tel:${data.contact.phone_2}`}>{data.contact.phone_2}</a></> }
                     { data.contact.phone_3 && <>, <a href={`tel:${data.contact.phone_3}`}>{data.contact.phone_3}</a></> }
                 </p>
 
-                { data.contact.email && <p className="mb-2 text-black" style={{ fontSize: 16 }}><i className="fas fa-envelope text-primary mr-2" /><a href={"mailto: "+data.contact.email}>{data.contact.email}</a></p>  }
+                { data.contact.email && <p className="mb-2" style={{ fontSize: 16 }}><i className="fas fa-envelope text-primary mr-2" /><a href={"mailto: "+data.contact.email}>{data.contact.email}</a></p>  }
 
                 {
                     data.contact.website && (
-                        <p className="mb-2 text-black" style={{ fontSize: 16 }}><i className="fab fa-internet-explorer text-primary mr-2"/><a href={data.contact.website} target="_blank" rel="noopener noreferrer">Weboldal felkeresése</a></p>
+                        <p className="mb-2" style={{ fontSize: 16 }}><i className="fab fa-internet-explorer text-primary mr-2"/><a href={data.contact.website} target="_blank" rel="noopener noreferrer">Weboldal felkeresése</a></p>
                     )
                 }
 
                 {
                     data.contact.facebook && (
-                        <p className="mb-2 text-black" style={{ fontSize: 16 }}><i className="fab fa-facebook text-primary mr-2"/><a href={data.contact.facebook} target="_blank" rel="noopener noreferrer">{data.name}</a></p>
+                        <p className="mb-2" style={{ fontSize: 16 }}><i className="fab fa-facebook text-primary mr-2"/><a href={data.contact.facebook} target="_blank" rel="noopener noreferrer">{data.name}</a></p>
                     )
                 }
 
@@ -126,6 +129,17 @@ const Info = (props) => {
                         <p className="mb-2 text-white" style={{ fontSize: 16 }}><span className="badge badge-info"><i className="fas fa-link mr-2 text-white"/><a href={data.delivery.order_link} target="_blank" rel="noopener noreferrer" className="text-white">Online rendelés</a></span></p>
                     )
                 }
+            
+                {
+                    (externalMenu !== null && externalMenu !== undefined) ? (
+                        <>
+                            <hr />
+                            <h5 className="mt-4">Heti menü</h5>
+                            <p dangerouslySetInnerHTML={{ __html: externalMenu }}></p>
+                        </>
+                    ) : null
+                }
+                
 
                 <hr className="clearfix" />
                 {

@@ -26,6 +26,7 @@ const RestaurantScreen = () => {
     const [city, setCity] = useState('');
     const [name, setName] = useState('Menüzz');
     const [loading, setLoading] = useState(true);
+    const [externalMenu, setExternalMenu] = useState(null);
 
     useEffect(() => {
 		API.get(`restaurant/${slug}`, {params: {'API_SECRET': API_SECRET} })
@@ -41,6 +42,14 @@ const RestaurantScreen = () => {
         .catch(error => {
             history.push("/");
         });
+
+        API.get(`restaurant/getExternalMenu/${slug}`, {params: {'API_SECRET': API_SECRET} })
+        .then(res => {
+            if(res.status === 200){
+                setExternalMenu(res.data.data);
+            }
+        })
+        .catch(error => console.log(error));
     }, [history, slug])
 
     const renderPage = () => {
@@ -66,6 +75,7 @@ const RestaurantScreen = () => {
                                         <div className="tab-content" id="pills-tabContent">
                                             <Info 
                                                 data={data}
+                                                externalMenu={externalMenu}
                                             />
                                             <Gallery 
                                                 images={data.images}

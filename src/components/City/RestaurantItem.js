@@ -13,7 +13,10 @@ const RestaurantItem = (props) => {
                         props.delivery === "1" && <div className="star position-absolute"><span className="badge badge-success"><i className="fas fa-truck"></i> KISZÁLLÍTÁS</span></div>
                     }
                     <div className="favourite-heart text-danger position-absolute"><a href={"tel: " + props.phone}><i className="fas fa-phone"></i> {props.phone}</a></div>
-                    {/* <div className="member-plan position-absolute"><span className="badge badge-danger">KIEMELT</span></div> */}
+                    {
+                        (props.menu_url !== null && props.menu_url !== undefined) && <div className="member-plan position-absolute"><a href={props.menu_url} target="_blank"><span className="badge badge-primary"><i className="fas fa-utensils"></i> MENÜ</span></a></div>
+                    }
+                    
                     <Link to={"/restaurant/"+props.slug}>
                         <img src={props.image} className="img-fluid item-img" alt="asd"/>
                     </Link>

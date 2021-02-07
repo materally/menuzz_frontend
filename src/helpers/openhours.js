@@ -25,7 +25,7 @@ function todayOpenHours(opening_hours, type = 'listing') {
       time = <>ZÁRVA&nbsp;<i className="fas fa-clock"></i> {opening_hours[day_start].substring(0,5) + " - " + opening_hours[day_stop].substring(0,5)} </>
     }
   }else{
-    classname = (type === 'listing') ? 'badge badge-default' : 'btn btn-default';
+    classname = (type === 'listing') ? 'badge badge-default' : 'btn btn-danger';
     time = 'MA ZÁRVA';
   }
 

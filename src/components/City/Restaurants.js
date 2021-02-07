@@ -23,6 +23,7 @@ const Restaurants = (props) => {
                         openHour={openHour}
                         delivery={r.delivery.can_order}
                         phone={r.contact.phone_1}
+                        menu_url={r.menu_url}
                     /> 
         })
     }
