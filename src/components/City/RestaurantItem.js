@@ -14,7 +14,7 @@ const RestaurantItem = (props) => {
                     }
                     <div className="favourite-heart text-danger position-absolute"><a href={"tel: " + props.phone}><i className="fas fa-phone"></i> {props.phone}</a></div>
                     {
-                        (props.menu_url !== null && props.menu_url !== undefined) && <div className="member-plan position-absolute"><a href={props.menu_url} target="_blank"><span className="badge badge-primary"><i className="fas fa-utensils"></i> MENÜ</span></a></div>
+                        (props.menu_url !== null && props.menu_url !== undefined) && <div className="member-plan position-absolute"><a href={props.menu_url} rel="noreferrer" target="_blank"><span className="badge badge-primary"><i className="fas fa-utensils"></i> MENÜ</span></a></div>
                     }
                     
                     <Link to={"/restaurant/"+props.slug}>

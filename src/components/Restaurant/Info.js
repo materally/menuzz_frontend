@@ -102,7 +102,7 @@ const Info = (props) => {
                 <h5 className="mb-2">{data.name}</h5>
 
 
-                { data.menu_url && <p className="mb-3"><a href={`${data.menu_url}`} target="_blank"><span className="badge badge-primary" style={{ fontSize: 16 }}><i className="fas fa-utensils"></i> MENÜ MEGTEKINTÉSE</span></a></p> }
+                { data.menu_url && <p className="mb-3"><a href={`${data.menu_url}`} rel="noreferrer" target="_blank"><span className="badge badge-primary" style={{ fontSize: 16 }}><i className="fas fa-utensils"></i> MENÜ MEGTEKINTÉSE</span></a></p> }
 
                 <p className="mb-2" style={{ fontSize: 16 }}><i className="fas fa-phone text-primary mr-2" />
                     { data.contact.phone_1 && <a href={`tel:${data.contact.phone_1}`}>{data.contact.phone_1}</a> }
