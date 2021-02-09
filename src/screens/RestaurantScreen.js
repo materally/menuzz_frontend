@@ -124,6 +124,10 @@ const RestaurantScreen = () => {
             <title>{name} {city} - Heti menü, napi menü!</title>
             <meta name="description" content={"Keress ebédet a " + city + " területén. " + city + " heti menü, napi menü"} />
             <link rel="canonical" href={process.env.REACT_APP_FRONTEND_URL + "/" + city} />
+            <meta property="og:title" content={name + city + ' heti menü, napi menü!'}/>
+            <meta property="og:description" content={'Keress ebédet ' + city + ' területén! Heti menü, napi menü ' + city + 'területén'}/>
+            <meta property="og:image" content={data.logo}/>
+            <meta property="og:url" content={process.env.REACT_APP_FRONTEND_URL+'city/'+city}/>
         </Helmet>
         { renderPage() }
     </Fragment>

@@ -26,9 +26,9 @@ const CityScreen = () => {
   const [openFilter, setOpenFilter] = useState(false);
   const [menuFilter, setMenuFilter] = useState(false);
   const [init, setInit] = useState(true);
+  const bCity = encodeURIComponent(city);
 
   useEffect(() => {
-    const bCity = encodeURIComponent(city);
 		API.get(`restaurant/checkCityExists`, {params: {'API_SECRET': API_SECRET, 'city': bCity} })
         .then(res => {
             if(res.status === 200){
@@ -48,14 +48,14 @@ const CityScreen = () => {
       setRestaurants([]);
       setFilteredRestaurants([]);
       setInit(true);
-      API.get(`restaurant/listing`, {params: {'API_SECRET': API_SECRET} })
+      API.get(`restaurant/listingCity`, {params: {'API_SECRET': API_SECRET, 'city': bCity} })
       .then(res => {
           if(res.status === 200){
-              let filteredData = res.data.filter(function (restaurant) {
+              /* let filteredData = res.data.filter(function (restaurant) {
                   return (restaurant.address.city === city);
-              });
-              setRestaurants(filteredData);
-              setFilteredRestaurants(filteredData);
+              }); */
+              setRestaurants(res.data);
+              setFilteredRestaurants(res.data);
               setLoading(false);
               setInit(false);
           }
@@ -98,7 +98,10 @@ const CityScreen = () => {
         <Helmet>
           <title>{city} heti menü, {city} napi menü!</title>
           <meta name="description" content={'Keress ebédet ' + city + ' területén! Heti menü, napi menü ' + city + 'területén'} />
-          <link rel="canonical" href={process.env.REACT_APP_FRONTEND_URL} />
+          <link rel="canonical" href={process.env.REACT_APP_FRONTEND_URL+'city/'+city} />
+          <meta property="og:title" content={city + ' heti menü, ' + city + ' napi menü!'}/>
+          <meta property="og:description" content={'Keress ebédet ' + city + ' területén! Heti menü, napi menü ' + city + 'területén'}/>
+          <meta property="og:url" content={process.env.REACT_APP_FRONTEND_URL+'city/'+city}/>
         </Helmet>
         <section className="section pb-5 products-listing" style={{ paddingTop: 20 }}>
           <div className="container">
