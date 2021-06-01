@@ -13,6 +13,7 @@ import HomeScreen from './screens/HomeScreen';
 import CityScreen from './screens/CityScreen';
 import RestaurantScreen from './screens/RestaurantScreen';
 import ContactScreen from './screens/ContactScreen';
+import PrivacyScreen from './screens/PrivacyScreen';
 
 // components
 import Layout from './components/Layout/Layout';
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/city/:city" exact component={CityScreen} />
           <Route path="/restaurant/:slug" exact component={RestaurantScreen} />
           <Route path="/contact" exact component={ContactScreen} /> 
+          <Route path="/privacy" exact component={PrivacyScreen} /> 
           <Route><NotFoundScreen /></Route>
       </Switch>
     </Layout>

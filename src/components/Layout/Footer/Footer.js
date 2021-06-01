@@ -60,7 +60,7 @@ const Footer = () => {
         <footer className="pt-4 pb-4 text-center">
             <div className="container">
                 <p className="mt-0 mb-0">&copy; Minden jog fenntartva! - Menuzz.hu</p>
-                <p><small className="mt-0 mb-0"> Verzió: 2.0 - 2021.02.16.</small></p>
+                <p><small className="mt-0 mb-0"> Verzió: 2.0 - 2021.02.16. - <Link to="/privacy">Adatvédelmi nyilatkozat</Link></small></p>
                 <small className="mt-0 mb-0"> Az esetleges elírásokért felelősséget nem vállalunk!</small>
             </div>
         </footer>
