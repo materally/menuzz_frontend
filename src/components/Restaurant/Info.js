@@ -40,7 +40,9 @@ const Info = (props) => {
 
     const delivery = () => {
         const { delivery } = props.data
-        if(delivery.can_order){
+        if(delivery.can_order == 0){
+            return <p>Nincs kiszállítás</p>
+        }else{
             return (
                 <div style={{ paddingBottom: '1rem' }}>
                     <table className="table">
@@ -70,8 +72,6 @@ const Info = (props) => {
                     </table>
                 </div>
             )
-        }else{
-            return <p>Nincs kiszállítás</p>
         }
     }
 
