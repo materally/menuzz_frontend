@@ -61,7 +61,8 @@ const Footer = () => {
             <div className="container">
                 <p className="mt-0 mb-0">&copy; Minden jog fenntartva! - Menuzz.hu</p>
                 <p><small className="mt-0 mb-0"> Verzió: 2.0 - 2021.02.16. - <Link to="/privacy">Adatvédelmi nyilatkozat</Link></small></p>
-                <small className="mt-0 mb-0"> Az esetleges elírásokért felelősséget nem vállalunk!</small>
+                <p><small className="mt-0 mb-0"> Az esetleges elírásokért felelősséget nem vállalunk!</small></p>
+                <p><small className="mt-0 mb-0"> Powered by <a href="https://kulcsarcodes.hu" target="_blank">Kulcsar Codes</a></small></p>
             </div>
         </footer>
     </Fragment>
