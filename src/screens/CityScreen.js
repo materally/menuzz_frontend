@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import moment from 'moment';
+import AdSense from 'react-adsense';
 
 // Components
 import API, { API_SECRET } from '../services/api.service';
@@ -122,6 +123,13 @@ const CityScreen = () => {
                 setOpenFilter={setOpenFilter}
                 menuFilter={menuFilter}
                 setMenuFilter={setMenuFilter}
+              />
+              <AdSense.Google
+                client='ca-pub-0702538969981759'
+                slot='4187493889'
+                style={{ display: 'block', width: '100%' }}
+                format='auto'
+                responsive='true'
               />
               <Restaurants 
                 loading={loading}

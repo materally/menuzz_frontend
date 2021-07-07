@@ -15,7 +15,7 @@ import Info from '../components/Restaurant/Info';
 import Gallery from '../components/Restaurant/Gallery';
 import Ratings from '../components/Restaurant/Ratings';
 import GoogleAds from '../components/Restaurant/GoogleAds';
-import LocalAds from '../components/Restaurant/LocalAds';
+/* import LocalAds from '../components/Restaurant/LocalAds'; */
 import MenuHours from '../components/Restaurant/MenuHours';
 import OpenHours from '../components/Restaurant/OpenHours';
 
@@ -88,6 +88,7 @@ const RestaurantScreen = () => {
                                     </div> {/* offer-dedicated-body-left */}
                                 </div> {/* col-md-8 */}
                                 <div className="col-md-4">
+                                    <GoogleAds />
                                     <p style={{ textAlign: 'center' }}>
                                         <Link to={"/city/"+city}>további éttermek <b>{city}</b> területén</Link>
                                     </p>
@@ -106,8 +107,7 @@ const RestaurantScreen = () => {
                                     <OpenHours 
                                         open_hours={data.opening_hours}
                                     />
-                                    {/* <GoogleAds />
-                                    <LocalAds /> */}
+                                    {/* <LocalAds /> */}
                                 </div> {/* col-md-4 */}
                             </div>
                         </div>
